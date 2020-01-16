@@ -116,6 +116,7 @@ void game::logicControl()
 		if(playerY > 2)
 			playerY--;
 		check();
+		mControl = DOWN;
 		break;
 	}
 	case RIGHT:
@@ -123,6 +124,7 @@ void game::logicControl()
 		if(playerY < 43)
 			playerY++;
 		check();
+		mControl = DOWN;
 		break;
 	}
 	case DOWN:
