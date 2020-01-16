@@ -14,9 +14,30 @@ void game::check()
 	}
 
 	//Проверка: убийсто игрока
-	if (playerX == botXone || playerX == botXtwo || playerX == botXthree)
+
+	if (playerX == botXone)
 	{
-		if (playerY == botYone || playerY == botYtwo || playerY == botYthree)
+		if (playerY == botYone || playerY == botXone - 1)
+		{
+			system("cls");
+			cout << "\t\t\t\t\t Game Over" << endl;
+			menu();
+		}
+	}
+
+	if (playerX == botXtwo)
+	{
+		if (playerY == botYtwo || playerY == botYtwo)
+		{
+			system("cls");
+			cout << "\t\t\t\t\t Game Over" << endl;
+			menu();
+		}
+	}
+
+	if (playerX == botXthree)
+	{
+		if (playerY == botYthree || playerY == botYthree)
 		{
 			system("cls");
 			cout << "\t\t\t\t\t Game Over" << endl;
@@ -92,13 +113,15 @@ void game::logicControl()
 	{
 	case LEFT:
 	{
-		playerY--;
+		if(playerY > 2)
+			playerY--;
 		check();
 		break;
 	}
 	case RIGHT:
 	{
-		playerY++;
+		if(playerY < 43)
+			playerY++;
 		check();
 		break;
 	}

@@ -47,6 +47,7 @@ void map::mapGeneration(char empty, char wall, char player, char botOne, char bo
 
 void map::showMap()
 {
+	cout << "PlayerX: " << playerX << " PlayerY: " << playerY << endl;
 	cout << "Score: " << score << endl;
 	cout << endl;
 	for (int i = 0; i < horizontal; i++)

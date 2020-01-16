@@ -1,5 +1,6 @@
 ﻿//Game - Mad Crody
 #include "start.h"
+
 int main()
 {
     srand(time(0));

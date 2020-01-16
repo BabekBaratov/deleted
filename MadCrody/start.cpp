@@ -2,32 +2,62 @@
 
 void start::menu()
 {
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
-	cout << endl;
 	cout << "\t\t\t\t\tНачать игру" << endl;
 	cout << "\t\t\t\t\t   Выйти" << endl;
-	cin >> varMenu;
+	int selectedIndex = 0;//Возвращает выбраный элемент
 
-	switch (varMenu)
+	while (true)
 	{
-	case 1:
-	{
-		system("cls");
-		startGame();
-		break;
-	}
-	case 2:
-	{
-		system("cls");
-		exit(0);
-		break;
-	}
+		switch (_getch())
+		{
+			case KEY_UP:
+			{
+				if (selectedIndex > 0)
+					selectedIndex--;
+				break;
+			}
+			case KEY_DOWN:
+			{
+				if (selectedIndex < 1)
+					selectedIndex++;
+				break;
+			}
+			case KEY_ENTER:
+			{
+				switch (selectedIndex)
+				{
+				case 0:
+				{
+					startGame();
+					break;
+				}
+				case 1:
+				{
+					exit(0);
+					break;
+				}
+				default:
+					break;
+				}
+				break;
+			}
+		}
+
+		switch (selectedIndex)
+		{
+		case 0:
+			system("cls");
+			cout << "\t\t\t\t       >Начать игру<" << endl;
+			cout << "\t\t\t\t\t   Выйти" << endl;
+			break;
+		case 1:
+			system("cls");
+			cout << "\t\t\t\t\tНачать игру" << endl;
+			cout << "\t\t\t\t\t  >Выйти<" << endl;
+			break;
+		default:
+			break;
+		}
 	}
 }
 
@@ -45,6 +75,7 @@ void start::startGame()
 
 	do
 	{
+		Sleep(20);
 		mapGeneration(' ', '0', 'P', 'V', 'V', 'V', 'C');
 		control();
 		logicControl();

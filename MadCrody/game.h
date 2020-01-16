@@ -1,4 +1,8 @@
 #pragma once
+#define KEY_UP 72
+#define KEY_DOWN 80
+#define KEY_ENTER 13
+
 #include<iostream>
 #include<ctime>
 #include<conio.h>
@@ -37,6 +41,8 @@ protected:
 
 	int score;//Счет игрока
 	int Health;//Жизнь игрока (1)
+
+	bool statPlayer = false;
 
 	MyControl mControl;
 	void check();//Проверки
